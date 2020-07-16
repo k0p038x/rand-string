@@ -65,6 +65,13 @@ class App extends React.Component {
       this.displayString = true;
       return;
     } 
+    if(len.length > 100) {
+      this.error = true;
+      this.setState({text : "Length must be less than 101"});
+      this.displayString = true;
+      return;
+    }
+    
     let cur = this.randomString(len-cnt, this.alphabets.concat(this.numbers));
     console.log("cur string : ", cur);
     if(isAlpha) {
